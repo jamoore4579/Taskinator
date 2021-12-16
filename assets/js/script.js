@@ -17,6 +17,9 @@ var taskFormHandler = function(event) {
         return false;
     }
 
+    document.querySelector("input[name='task-name']").value = "";
+    document.querySelector("select[name='task-type']").selectedIndex = 0;
+
     var isEdit = formEl.hasAttribute("data-task-id");
     console.log(isEdit)
 
@@ -32,17 +35,9 @@ var taskFormHandler = function(event) {
             type: taskTypeInput
         };
 
+
     }
-
-    // package up data as an object
-    var taskDataObj = {
-        name: taskNameInput,
-        type: taskTypeInput
-    };
-
-    formEl.reset();
-
-    // send it as an argument to createTaskEl
+    
     createTaskEl(taskDataObj);
     console.log("new task")
 };
