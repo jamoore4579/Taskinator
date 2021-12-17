@@ -66,7 +66,7 @@ var createTaskEl = function(taskDataObj) {
     // line--
     switch (taskDataObj.status) {
         case "to do":
-          taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
+          tasksActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
           tasksToDoEl.append(listItemEl);
           break;
         case "in progress":
@@ -253,14 +253,13 @@ var loadTasks = function() {
     }
     console.log("Saved tasks found!");
     // else, load up saved tasks
-
-    // parse into array of objects
-    savedTasks = JSON.parse(savedTasks);
+   
+    savedTasks = JSON.parse(savedTasks)
 
     // loop through savedTasks array
     for (var i = 0; i < savedTasks.length; i++) {
-    // pass each task object into the `createTaskEl()` function
-    createTaskEl(savedTasks[i]);
+        // pass each task object into the `createTaskEl()` function
+        createTaskEl(savedTasks[i]);
   }
 }
 
